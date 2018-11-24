@@ -50,8 +50,7 @@ model.fit_generator(training_set,
                     steps_per_epoch=1088,
                     epochs=1,
                     validation_data=test_set,
-                    validation_steps=272,
-                    use_multiprocessing=True, workers=8)
+                    validation_steps=272)
 
 # Save tf.keras model in HDF5 format.
 keras_file = "keras_model.h5"
