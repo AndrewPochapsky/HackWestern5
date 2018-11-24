@@ -48,6 +48,8 @@ test_set = test_datagen.flow_from_directory('data/testing',
 
 model.fit_generator(training_set,
                     steps_per_epoch=1088,
-                    epochs=25,
+                    epochs=10,
                     validation_data=test_set,
                     validation_steps=272)
+
+model.save('models/my_model.h5')
