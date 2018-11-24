@@ -48,8 +48,13 @@ test_set = test_datagen.flow_from_directory('data/testing',
 
 model.fit_generator(training_set,
                     steps_per_epoch=1088,
-                    epochs=10,
+                    epochs=1,
                     validation_data=test_set,
-                    validation_steps=272)
+                    validation_steps=272,
+                    use_multiprocessing=True, workers=8)
 
-model.save('models/my_model.h5')
+# Save tf.keras model in HDF5 format.
+keras_file = "keras_model.h5"
+tf.keras.models.save_model(model, 'models/'+keras_file)
+
+# Convert to TensorFlow Lite model.
